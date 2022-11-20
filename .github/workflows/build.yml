@@ -25,12 +25,14 @@ jobs:
   scribe-report-test:
     runs-on: ubuntu-latest
     steps:
+      - name: create file
+        run: echo `date` > tmp.txt
 
       - name: Generate cyclonedx json SBOM
         id: gensbom_json
         uses: scribe-security/actions/gensbom/bom@master
         with:
-          target: 'mongo-express:1.0.0-alpha.4'
+          target: 'dir:.'
           format: json
           verbose: 2
           force: true
