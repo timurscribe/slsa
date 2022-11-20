@@ -32,9 +32,9 @@ jobs:
           echo "FROM scratch" > Dockerfile
           echo "COPY . ." >> Dockerfile
           docker build -t date:latest .
-          ls -lt
  
-    
+      - uses: actions/checkout@v3
+      
       - name: install opa
         run: | 
           curl -L -o opa https://openpolicyagent.org/downloads/v0.46.1/opa_linux_amd64_static
@@ -83,13 +83,24 @@ jobs:
         id: gensbom_slsa
         uses: scribe-security/actions/gensbom/bom@master
         with:
-          target: 'mongo-express:1.0.0-alpha.4'
+          target: 'date:latest'
           format: statement-slsa
           product-key: ${{ secrets.SCRIBE_DEV_PRODUCT_KEY }}
           verbose: 2
           force: true
+          
+      - name: generate slsa report
+      - run: | 
+            sed "s/GH_TOKEN/${{ secrets.GH_ACCESS_TOKEN }}/" | \
+            opa eval -I --format=pretty -b github -b utils data.github.slsa.report \
+            > slsa.json
 
       - uses: actions/upload-artifact@v2
         with:
           name: provenance
           path: ${{ steps.gensbom_slsa.outputs.OUTPUT_PATH }}
+          
+      - uses: actions/upload-artifact@v2
+        with:
+          name: slsa_report
+          path: slsa.json
