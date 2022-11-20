@@ -1,0 +1,18 @@
+{
+    "token": "token GH_TOKEN",
+    "slsa": {
+        "repository": "dn-org/slsa",
+        "protected_branch": "main",
+        "accept_retained_indefinitely": true,
+        "repository_url": "https://github.com/dn-org/slsa",
+        "build_script": "build.yml",
+        "build_service": "GitHub Actions",
+        "provenance": "a.prov",
+        "reason_provenance_authenticated": "a.sig"
+    },
+    "commits": {
+        "dn-org/slsa": {
+            "history": ["8eda247e57ca4202a814f5efb28d9e7a5de12cdf"]
+        }
+    }
+  }
