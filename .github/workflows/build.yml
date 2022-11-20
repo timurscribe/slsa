@@ -33,7 +33,7 @@ jobs:
           echo "COPY . ." >> Dockerfile
           docker build -t date:latest .
  
-     # - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
       
       - name: install opa
         run: | 
