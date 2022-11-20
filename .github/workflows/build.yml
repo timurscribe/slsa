@@ -32,6 +32,7 @@ jobs:
           echo "FROM scratch" > Dockerfile
           echo "COPY . ." >> Dockerfile
           docker build -t date:latest .
+          ls -lt
  
     
       - name: install opa
@@ -54,6 +55,9 @@ jobs:
         run: |
             cd GitHub-Posture
             ls -lt
+            
+      
+ 
         
  
  
