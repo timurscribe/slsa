@@ -28,6 +28,7 @@ jobs:
       - name: create file
         run: | 
           echo `date` > tmp.txt
+          echo "COPY tmp.txt ." > Dockerfile
           docker build -t date:latest .
         
         
