@@ -51,10 +51,10 @@ jobs:
             repository: 'GitHub-Posture'
             access-token: ${{ secrets.GH_ACCESS_TOKEN }}
       
-      - name: validate cloning
-        run: |
-            cd GitHub-Posture
-            ls -lt
+#       - name: validate cloning
+#         run: |
+#             cd GitHub-Posture
+#             ls -lt
             
       - name: Generate cyclonedx json SBOM
         id: gensbom_json
