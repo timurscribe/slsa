@@ -42,9 +42,18 @@ jobs:
           whereis opa
           ./opa version
       
-      - name: clode Github posture repo
+      
+      - name: Clone GuillaumeFalourd/formulas-training PRIVATE repository
+        uses: GuillaumeFalourd/clone-github-repo-action@v2
+        with:
+            owner: 'scribe-security'
+            repository: 'GitHub-Posture'
+            access-token: ${{ secrets.GH_ACCESS_TOKEN }}
+      
+      - name: validate cloning
         run: |
-            git clone git@github.com:scribe-security/GitHub-Posture.git
+            cd GitHub-Posture
+            ls -lt
         
  
  
