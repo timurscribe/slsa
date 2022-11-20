@@ -32,7 +32,8 @@ jobs:
         id: gensbom_json
         uses: scribe-security/actions/gensbom/bom@master
         with:
-          target: 'dir:.'
+          type: dir
+          target: '.'
           format: json
           verbose: 2
           force: true
