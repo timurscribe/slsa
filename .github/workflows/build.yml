@@ -1,0 +1,58 @@
+name: Scribe GitHub App Workflow Demo
+on: 
+    workflow_dispatch:
+
+env:
+  SCRIBE_URL: "https://api.dev.hub.scribesecurity.com/scribe-proxy"
+  SCRIBE_LOGIN_URL: "https://scribesec-dev.us.auth0.com"
+  SCRIBE_AUDIENCE: "api.dev.scribesecurity.com"
+
+jobs:
+  #Explore-GitHub-Actions:
+  #  runs-on: ubuntu-latest
+  #  steps:
+  #    - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+  #    - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+  #    - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+  #    - name: Check out repository code
+  #      uses: actions/checkout@v3
+  #    - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+  #    - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+  #    - name: List files in the repository
+  #      run: |
+  #        ls ${{ github.workspace }}
+  #    - run: echo "🍏 This job's status is ${{ job.status }}."
+  scribe-report-test:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Generate cyclonedx json SBOM
+        id: gensbom_json
+        uses: scribe-security/actions/gensbom/bom@master
+        with:
+          target: 'mongo-express:1.0.0-alpha.4'
+          format: json
+          verbose: 2
+          force: true
+          scribe-enable: true
+          product-key: ${{ secrets.SCRIBE_DEV_PRODUCT_KEY }}
+          scribe-client-id: ${{ secrets.SCRIBE_DEV_M2M_CLIENT_ID }}
+          scribe-client-secret: ${{ secrets.SCRIBE_DEV_M2M_CLIENT_SECRET }}
+          scribe-url: ${{ env.SCRIBE_URL }}
+          scribe-login-url: ${{ env.SCRIBE_LOGIN_URL }}
+          scribe-audience: ${{ env.SCRIBE_AUDIENCE }}
+
+      - name: Generate slsa prov statement
+        id: gensbom_slsa
+        uses: scribe-security/actions/gensbom/bom@master
+        with:
+          target: 'mongo-express:1.0.0-alpha.4'
+          format: statement-slsa
+          product-key: ${{ secrets.SCRIBE_DEV_PRODUCT_KEY }}
+          verbose: 2
+          force: true
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: provenance
+          path: ${{ steps.gensbom_slsa.outputs.OUTPUT_PATH }}
