@@ -82,7 +82,7 @@ jobs:
           
       - name: generate slsa report
         run: | # echo "SLSA is great" > slsa.json
-          cat input.json | sed "s/GH_TOKEN/${{ secrets.GH_ACCESS_TOKEN }}/" | opa eval -I --format=pretty -b github -b utils data.github.slsa.report > slsa.json
+          cat input.json | sed "s/GH_TOKEN/${{ secrets.GH_ACCESS_TOKEN }}/" | ./opa eval -I --format=pretty -b GitHub-Posture/github -b GitHub-Posture/utils data.github.slsa.report > slsa.json
 
       - uses: actions/upload-artifact@v2
         with:
