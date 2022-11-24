@@ -16,7 +16,7 @@ jobs:
       - name: create file and Docker
         run: | 
           echo `date` > tmp.txt
-          echo "FROM scratch" > Dockerfile
+          echo "FROM node:latest" > Dockerfile
           echo "COPY . ." >> Dockerfile
           docker build -t date:latest .
  
