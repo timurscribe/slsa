@@ -5,8 +5,8 @@
         "protected_branch": "main",
         "accept_retained_indefinitely": true,
         "repository_url": "https://github.com/dn-org/slsa",
-        "build_script": "build.yml",
-        "build_service": "GitHub Actions",
+        //"build_script": "build.yml",
+        //"build_service": "GitHub Actions",
         "provenance": "a.prov",
         "reason_provenance_authenticated": "a.sig"
     },
