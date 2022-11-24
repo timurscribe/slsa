@@ -1,7 +1,7 @@
 {
     "token": "token GH_TOKEN",
     "slsa": {
-        "repository": "dn-org/slsa",
+        //"repository": "dn-org/slsa",
         "protected_branch": "main",
         "accept_retained_indefinitely": true,
         "repository_url": "https://github.com/dn-org/slsa",
