@@ -1,6 +1,6 @@
 name: Scribe GitHub App Workflow Demo
 on: 
-    push:
+#    push:
     workflow_dispatch:
 
 env:
