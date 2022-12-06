@@ -32,21 +32,21 @@ jobs:
             key: my-key
                     
       
-      - name: install opa
-        run: | 
-          curl -L -o opa https://openpolicyagent.org/downloads/v0.46.1/opa_linux_amd64_static
-          chmod +x ./opa
-          echo "installed"
-          whereis opa
-          ./opa version
+#      - name: install opa
+#        run: | 
+#          curl -L -o opa https://openpolicyagent.org/downloads/v0.46.1/opa_linux_amd64_static
+#          chmod +x ./opa
+#          echo "installed"
+#          whereis opa
+#          ./opa version
       
       
-      - name: Clone GuillaumeFalourd/formulas-training PRIVATE repository
-        uses: GuillaumeFalourd/clone-github-repo-action@v2
-        with:
-            owner: 'scribe-security'
-            repository: 'GitHub-Posture'
-            access-token: ${{ secrets.GH_ACCESS_TOKEN }}
+#      - name: Clone GuillaumeFalourd/formulas-training PRIVATE repository
+##        uses: GuillaumeFalourd/clone-github-repo-action@v2
+#       with:
+#           owner: 'scribe-security'
+#            repository: 'GitHub-Posture'
+#            access-token: ${{ secrets.GH_ACCESS_TOKEN }}
       
             
       - name: Generate cyclonedx json SBOM
@@ -59,12 +59,12 @@ jobs:
           verbose: 2
           force: true
           scribe-enable: true
-          product-key: ${{ secrets.SCRIBE_DEV_PRODUCT_KEY }}
-          scribe-client-id: ${{ secrets.SCRIBE_DEV_M2M_CLIENT_ID }}
-          scribe-client-secret: ${{ secrets.SCRIBE_DEV_M2M_CLIENT_SECRET }}
-          scribe-url: ${{ env.SCRIBE_URL }}
-          scribe-login-url: ${{ env.SCRIBE_LOGIN_URL }}
-          scribe-audience: ${{ env.SCRIBE_AUDIENCE }}
+          product-key: 445cd7ed-cbe2-456a-9dc3-d880e3d6648d
+          scribe-client-id: 8tOb9YjkAax1HXpU2IHqMtx3WKcsMer9
+          scribe-client-secret: 6O9HrT4Kg-vSqHOZlfOitLvpTG8pnm76AQXul1dHjcZNDe1ECTRB3aHQnBI1nekC
+          scribe-url: https://api.dev.scribesecurity.com
+          scribe-login-url: https://scribesec-dev.us.auth0.com
+          scribe-audience: api.dev.scribesecurity.com
 
       - name: Generate slsa prov statement
         id: gensbom_slsa
@@ -73,21 +73,21 @@ jobs:
           type: docker
           target: 'date:latest'
           format: statement-slsa
-          product-key: ${{ secrets.SCRIBE_DEV_PRODUCT_KEY }}
+          product-key: 445cd7ed-cbe2-456a-9dc3-d880e3d6648d
           verbose: 2
           force: true
           
-      - name: generate slsa report
-        run: | # echo "SLSA is great" > slsa.json
-          cat input.json | sed "s/GH_TOKEN/${{ secrets.MY_SECRET }}/" | ./opa eval -I --format=pretty -b GitHub-Posture/github data.github.slsa.report > slsa.json
-          cat slsa.json
+#      - name: generate slsa report
+#        run: | # echo "SLSA is great" > slsa.json
+#          cat input.json | sed "s/GH_TOKEN/${{ secrets.MY_SECRET }}/" | ./opa eval -I --format=pretty -b GitHub-Posture/github data.github.slsa.report > slsa.json
+#          cat slsa.json
 
-      - uses: actions/upload-artifact@v2
-        with:
-          name: provenance
-          path: ${{ steps.gensbom_slsa.outputs.OUTPUT_PATH }}
+#      - uses: actions/upload-artifact@v2
+#        with:
+#          name: provenance
+#          path: ${{ steps.gensbom_slsa.outputs.OUTPUT_PATH }}
           
-      - uses: actions/upload-artifact@v2
-        with:
-          name: slsa_report
-          path: slsa.json
+#      - uses: actions/upload-artifact@v2
+#        with:
+#          name: slsa_report
+#          path: slsa.json
