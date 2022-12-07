@@ -25,11 +25,11 @@ jobs:
       - name: create file
         run:  echo ${{ secrets.MY_ORG_SECRET }} > cache.txt
       
-      - name: Cache input.json
-        uses: actions/cache@v3
-        with:
-            path: ~/cache.txt
-            key: my-key
+#      - name: Cache input.json
+#        uses: actions/cache@v3
+#        with:
+#            path: ~/cache.txt
+#            key: my-key
                     
       
 #      - name: install opa
