@@ -25,11 +25,11 @@ jobs:
       - name: create file
         run:  echo ${{ secrets.MY_ORG_SECRET }} > cache.txt
       
-#      - name: Cache input.json
-#        uses: actions/cache@v3
-#        with:
-#            path: ~/cache.txt
-#            key: my-key
+      - name: Cache input.json
+        uses: actions/cache@v3
+        with:
+            path: ~/cache.txt
+            key: my-key
                     
       
 #      - name: install opa
@@ -82,10 +82,10 @@ jobs:
 #          cat input.json | sed "s/GH_TOKEN/${{ secrets.MY_SECRET }}/" | ./opa eval -I --format=pretty -b GitHub-Posture/github data.github.slsa.report > slsa.json
 #          cat slsa.json
 
-#      - uses: actions/upload-artifact@v2
-#        with:
-#          name: provenance
-#          path: ${{ steps.gensbom_slsa.outputs.OUTPUT_PATH }}
+      - uses: actions/upload-artifact@v2
+        with:
+          name: provenance
+          path: ${{ steps.gensbom_slsa.outputs.OUTPUT_PATH }}
           
 #      - uses: actions/upload-artifact@v2
 #        with:
