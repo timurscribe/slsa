@@ -60,7 +60,7 @@ jobs:
           force: true
           scribe-enable: true
           product-key: dd958fcd-d739-428f-8cc0-72855f2e1881
-          scribe-client-id: 8tOb9YjkAax1HXpU2IHqMtx3WKcsMer9
+          scribe-client-id: 72Uc06W3XkZnApGRQWNXwLSBM1E7CWPa
           scribe-client-secret: 6O9HrT4Kg-vSqHOZlfOitLvpTG8pnm76AQXul1dHjcZNDe1ECTRB3aHQnBI1nekC
           scribe-url: https://api.dev.scribesecurity.com
           scribe-login-url: https://scribesec-dev.us.auth0.com
