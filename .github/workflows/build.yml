@@ -73,7 +73,7 @@ jobs:
           type: docker
           target: 'date:latest'
           format: statement-slsa
-          product-key: 445cd7ed-cbe2-456a-9dc3-d880e3d6648d
+          product-key: dd958fcd-d739-428f-8cc0-72855f2e1881
           verbose: 2
           force: true
           
