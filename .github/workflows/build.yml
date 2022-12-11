@@ -59,7 +59,7 @@ jobs:
           verbose: 2
           force: true
           scribe-enable: true
-          product-key: 445cd7ed-cbe2-456a-9dc3-d880e3d6648d
+          product-key: dd958fcd-d739-428f-8cc0-72855f2e1881
           scribe-client-id: 8tOb9YjkAax1HXpU2IHqMtx3WKcsMer9
           scribe-client-secret: 6O9HrT4Kg-vSqHOZlfOitLvpTG8pnm76AQXul1dHjcZNDe1ECTRB3aHQnBI1nekC
           scribe-url: https://api.dev.scribesecurity.com
