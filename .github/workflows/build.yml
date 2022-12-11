@@ -59,9 +59,9 @@ jobs:
           verbose: 2
           force: true
           scribe-enable: true
-          product-key: dd958fcd-d739-428f-8cc0-72855f2e1881
+          product-key: 9460960c-4d1f-46a0-bb38-70769e8a9358
           scribe-client-id: 72Uc06W3XkZnApGRQWNXwLSBM1E7CWPa
-          scribe-client-secret: 6O9HrT4Kg-vSqHOZlfOitLvpTG8pnm76AQXul1dHjcZNDe1ECTRB3aHQnBI1nekC
+          scribe-client-secret: F2jSew5vEsZ6Er8DbJgrKbzR7pDTqfHJr3yycloltScBH-j73RY-DGZgPfg-G1pp
           scribe-url: https://api.dev.scribesecurity.com
           scribe-login-url: https://scribesec-dev.us.auth0.com
           scribe-audience: api.dev.scribesecurity.com
@@ -73,7 +73,7 @@ jobs:
           type: docker
           target: 'date:latest'
           format: statement-slsa
-          product-key: dd958fcd-d739-428f-8cc0-72855f2e1881
+          product-key: 9460960c-4d1f-46a0-bb38-70769e8a9358
           verbose: 2
           force: true
           
