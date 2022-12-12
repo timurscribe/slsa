@@ -51,7 +51,7 @@ jobs:
             
       - name: Generate cyclonedx json SBOM
         id: gensbom_json
-        uses: scribe-security/actions/gensbom/bom@master
+        uses: scribe-security/action-bom@dev
         with:
           type: docker            
           target: date:latest
