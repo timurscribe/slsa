@@ -63,7 +63,7 @@ jobs:
           scribe-client-id: geLSXybFJIWrvHM319aJ5feb5UcPF84p
           scribe-client-secret: q1schS1MSj5b3QD2Rt3g_7sg3cjNLjMsxH_kKS7WbnmBQE0cgiFoJLagWma8L3Pq
           scribe-url: https://api.staging.scribesecurity.com
-          scribe-login-url: https://api.staging.scribesecurity.com
+          scribe-login-url: https://scribesecurity-staging.us.auth0.com
           scribe-audience: api.staging.scribesecurity.com
 #          product-key: 013cbfcf-37aa-4fd7-8e64-89c06bcb20ea
 #          scribe-client-id: 8tOb9YjkAax1HXpU2IHqMtx3WKcsMer9
