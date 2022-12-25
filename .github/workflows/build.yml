@@ -4,9 +4,9 @@ on:
     workflow_dispatch:
 
 env:
-  SCRIBE_URL: "https://api.staging.hub.scribesecurity.com/scribe-proxy"
-  SCRIBE_LOGIN_URL: "https://scribesec-staging.us.auth0.com"
-  SCRIBE_AUDIENCE: "api.staging.scribesecurity.com"
+  SCRIBE_URL: "https://api.dev.hub.scribesecurity.com/scribe-proxy"
+  SCRIBE_LOGIN_URL: "https://scribesec-dev.us.auth0.com"
+  SCRIBE_AUDIENCE: "api.dev.scribesecurity.com"
 
 jobs:
   
@@ -59,15 +59,15 @@ jobs:
           verbose: 2
           force: true
           scribe-enable: true
-          product-key: 73e489f2-fac3-4121-933c-43854b0afbfb
-          scribe-client-id: geLSXybFJIWrvHM319aJ5feb5UcPF84p
-          scribe-client-secret: q1schS1MSj5b3QD2Rt3g_7sg3cjNLjMsxH_kKS7WbnmBQE0cgiFoJLagWma8L3Pq
-          scribe-url: https://api.staging.scribesecurity.com
-          scribe-login-url: https://scribesec-staging.us.auth0.com
-          scribe-audience: api.staging.scribesecurity.com
-          #product-key: 013cbfcf-37aa-4fd7-8e64-89c06bcb20ea
-          #scribe-client-id: 8tOb9YjkAax1HXpU2IHqMtx3WKcsMer9
-          #scribe-client-secret: 6O9HrT4Kg-vSqHOZlfOitLvpTG8pnm76AQXul1dHjcZNDe1ECTRB3aHQnBI1nekC
+          #product-key: 73e489f2-fac3-4121-933c-43854b0afbfb
+          #scribe-client-id: geLSXybFJIWrvHM319aJ5feb5UcPF84p
+          #scribe-client-secret: q1schS1MSj5b3QD2Rt3g_7sg3cjNLjMsxH_kKS7WbnmBQE0cgiFoJLagWma8L3Pq
+          scribe-url: https://api.dev.scribesecurity.com
+          scribe-login-url: https://scribesec-dev.us.auth0.com
+          scribe-audience: api.dev.scribesecurity.com
+          product-key: 013cbfcf-37aa-4fd7-8e64-89c06bcb20ea
+          scribe-client-id: 8tOb9YjkAax1HXpU2IHqMtx3WKcsMer9
+          scribe-client-secret: 6O9HrT4Kg-vSqHOZlfOitLvpTG8pnm76AQXul1dHjcZNDe1ECTRB3aHQnBI1nekC
 
       - name: Generate slsa prov statement
         id: gensbom_slsa
@@ -76,8 +76,8 @@ jobs:
           type: docker
           target: 'date:latest'
           format: statement-slsa
-          product-key: 73e489f2-fac3-4121-933c-43854b0afbfb
-          #product-key: 013cbfcf-37aa-4fd7-8e64-89c06bcb20ea
+          #product-key: 73e489f2-fac3-4121-933c-43854b0afbfb
+          product-key: 013cbfcf-37aa-4fd7-8e64-89c06bcb20ea
           verbose: 2
           force: true
           
