@@ -59,6 +59,18 @@ jobs:
           scribe-client-secret: ${{ env.SCRIBE_CLIENT_SECRET }}
           product-key: anton-gh-app-test
 
+      - name: Generate slsa prov statement
+        id: gensbom_slsa
+        uses: scribe-security/action-bom@dev
+        with:
+          type: docker
+          target: 'date:latest'
+          format: statement-slsa
+          product-key: anton-gh-app-test
+          verbose: 2
+          scribe-enable: false
+          force: true
+
       - uses: actions/upload-artifact@v2
         with:
           name: provenance
