@@ -31,6 +31,7 @@ jobs:
           scribe-audience: ${{ env.SCRIBE_AUDIENCE }}
           scribe-client-id: ${{ env.SCRIBE_CLIENT_ID }}
           scribe-client-secret: ${{ env.SCRIBE_CLIENT_SECRET }}
+          product-key: anton-gh-app-test
       - name: create file and Docker
         run: | 
           echo `date` > tmp.txt
@@ -56,6 +57,7 @@ jobs:
           scribe-audience: ${{ env.SCRIBE_AUDIENCE }}
           scribe-client-id: ${{ env.SCRIBE_CLIENT_ID }}
           scribe-client-secret: ${{ env.SCRIBE_CLIENT_SECRET }}
+          product-key: anton-gh-app-test
 
       - uses: actions/upload-artifact@v2
         with:
