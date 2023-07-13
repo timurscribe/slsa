@@ -42,7 +42,7 @@ jobs:
       - name: create file and Docker
         run: | 
           echo `date` > tmp.txt
-          echo "FROM postgres:latest" > Dockerfile
+          echo "FROM apache/airflow" > Dockerfile
           echo "COPY . ." >> Dockerfile
           docker build -t date:latest .
       
