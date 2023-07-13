@@ -38,7 +38,7 @@ jobs:
           scribe-audience: ${{ env.SCRIBE_AUDIENCE }}
           scribe-client-id: ${{ env.SCRIBE_CLIENT_ID }}
           scribe-client-secret: ${{ env.SCRIBE_CLIENT_SECRET }}
-          product-key: anton-gh-app-test
+          product-key: new-test-test-test
       - name: create file and Docker
         run: | 
           echo `date` > tmp.txt
@@ -64,7 +64,7 @@ jobs:
           scribe-audience: ${{ env.SCRIBE_AUDIENCE }}
           scribe-client-id: ${{ env.SCRIBE_CLIENT_ID }}
           scribe-client-secret: ${{ env.SCRIBE_CLIENT_SECRET }}
-          product-key: anton-gh-app-test
+          product-key: new-test-test-test
 
       - name: Generate slsa prov statement
         id: gensbom_slsa
