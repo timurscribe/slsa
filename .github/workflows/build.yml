@@ -50,21 +50,21 @@ jobs:
         run:  echo ${{ secrets.MY_ORG_SECRET }} > cache.txt
       
 
-      - name: image sbom
-        id: image_sbom
-        uses: scribe-security/action-bom@dev
-        with:
-          type: docker            
-          target: date:latest
-          verbose: 2
-          force: true
-          scribe-enable: true
-          scribe-url: ${{ env.SCRIBE_URL }}
-          scribe-login-url: ${{ env.SCRIBE_LOGIN_URL }}
-          scribe-audience: ${{ env.SCRIBE_AUDIENCE }}
-          scribe-client-id: ${{ env.SCRIBE_CLIENT_ID }}
-          scribe-client-secret: ${{ env.SCRIBE_CLIENT_SECRET }}
-          product-key: anton-gh-app-test
+#      - name: image sbom
+#        id: image_sbom
+#        uses: scribe-security/action-bom@dev
+#        with:
+#          type: docker            
+#          target: date:latest
+#          verbose: 2
+#          force: true
+#          scribe-enable: true
+#          scribe-url: ${{ env.SCRIBE_URL }}
+#          scribe-login-url: ${{ env.SCRIBE_LOGIN_URL }}
+#          scribe-audience: ${{ env.SCRIBE_AUDIENCE }}
+#          scribe-client-id: ${{ env.SCRIBE_CLIENT_ID }}
+#          scribe-client-secret: ${{ env.SCRIBE_CLIENT_SECRET }}
+#          product-key: anton-gh-app-test
 
       - name: Generate slsa prov statement
         id: gensbom_slsa
