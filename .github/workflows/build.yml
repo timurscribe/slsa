@@ -20,8 +20,8 @@ env:
   SCRIBE_URL: "https://airflow.staging.scribesecurity.com/"
   SCRIBE_LOGIN_URL: "https://scribe-hub-staging.us.auth0.com"
   SCRIBE_AUDIENCE: "api.staging.scribesecurity.com"
-  SCRIBE_CLIENT_ID: ""
-  SCRIBE_CLIENT_SECRET: ""
+  SCRIBE_CLIENT_ID: "8zg3Y9Q5IcmPivYshcAeL8xUyCH3ovsU"
+  SCRIBE_CLIENT_SECRET: "gntCp5rXZ-yP-2vn7EO2IPdyKxTv9JdAQeTj7xXfnGMYhECsFbgqsJCDvgPYowO6"
 
 jobs:
   
