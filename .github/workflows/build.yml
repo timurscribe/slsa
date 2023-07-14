@@ -8,17 +8,14 @@ env:
   #SCRIBE_URL: "https://airflow.scribesecurity.com/"
   #SCRIBE_LOGIN_URL: "https://scribe-hub-production.us.auth0.com"
   #SCRIBE_AUDIENCE: "api.production.scribesecurity.com"
-  #SCRIBE_CLIENT_ID: "VzZGe4hjMPJv47BD4bnoqedff6e3V6Sv"
-  #SCRIBE_CLIENT_SECRET: "G9O36yANp7yR-3SN5zYZGYy0O7N7ZifE72xOGuqV-DjOqpAZFZ0cRMTzwWu8gmyu"
+  #SCRIBE_CLIENT_ID: ""
+  #SCRIBE_CLIENT_SECRET: ""
   # dev
   SCRIBE_URL: "https://airflow.dev.scribesecurity.com/"
   SCRIBE_LOGIN_URL: "https://scribe-hub-dev.us.auth0.com"
   SCRIBE_AUDIENCE: "api.dev.scribesecurity.com"
-  # timur
   SCRIBE_CLIENT_ID: "Gj9kbRBdqMPzYxpw92al77N39mfi7uuS"
-  SCRIBE_CLIENT_SECRET: "koHeZ-pDU60-GAk4YJfKUanagC3cuz2fQW6iSL71RihV_FfG_UP8S8aSD92XiKgl"
-  #SCRIBE_CLIENT_ID: "Q5z6uiqHWeGSLdZzIFVHMcnlF09kM1x8"
-  #SCRIBE_CLIENT_SECRET: "2IJJe_HNAT67qIuctHG3auq-8cegB-mha4ocErBYslKW0NpBK_eWoYXNgjvnN_Cx"
+  SCRIBE_CLIENT_SECRET: "xsK8RQIxbpfiCyACfgM6H3xPpZYyKk7zGgqLtzIZwX_UGcndU3RwEsPEDbXWwyqJ"
 
 jobs:
   
@@ -68,18 +65,6 @@ jobs:
           scribe-client-id: ${{ env.SCRIBE_CLIENT_ID }}
           scribe-client-secret: ${{ env.SCRIBE_CLIENT_SECRET }}
           product-key: new-test-test-test
-
-      - name: Generate slsa prov statement
-        id: gensbom_slsa
-        uses: scribe-security/action-bom@dev
-        with:
-          type: docker
-          target: 'date:latest'
-          format: statement-slsa
-          product-key: anton-gh-app-test
-          verbose: 2
-          scribe-enable: false
-          force: true
 
       - uses: actions/upload-artifact@v2
         with:
